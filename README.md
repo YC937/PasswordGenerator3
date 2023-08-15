@@ -4,11 +4,11 @@
 
 This website generates a random password based on user's selection. The password must follow certain rules.
 
-The password must be within 8 to 128 charactors.
+The password must be within 8 to 128 charactors. Include 8 and 128.
 
 The password can contain numbers, special characters, uppercase and lowercase letters. 
 
-The website will ask user to input again if the password length user selected is less than 7 or larger than 128. 
+The website will ask user to input again if the password length user selected is less than 8 or larger than 128. 
 
 ##
 Screenshot of the webpage:
