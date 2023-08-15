@@ -10,14 +10,13 @@ The password can contain numbers, special characters, uppercase and lowercase le
 
 The website will ask user to input again if the password length user selected is less than 7 or larger than 128. 
 
+##
 Screenshot of the webpage:
 
 <img src="./assets/Screenshot.jpg" width= 600px>
 
 ## 
-
 Link to the repository: https://github.com/YC937/PasswordGenerator3
-
 
 Link to the deployed website: https://yc937.github.io/PasswordGenerator3/
 
