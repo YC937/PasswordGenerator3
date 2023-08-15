@@ -12,7 +12,7 @@ The website will ask user to input again if the password length user selected is
 
 Screenshot of the webpage:
 
-<img src="./screenshot.jpg" width= 600px>
+<img src="./assets/Screenshot.jpg" width= 600px>
 
 ## 
 
