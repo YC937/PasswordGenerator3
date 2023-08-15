@@ -1,10 +1,12 @@
+// Define variebles
 var enternu;
 var confirmNum;
 var confirmChara;
 var confirmUpper;
 var confirmLower;
-var choose;
+var chosen;
 
+// List of what can be used in the password
 character = ["!", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", "\:", "\;", "<", "=", ">", "?", "@", "[", "\\", "]", "^", "_", "`", "{", "|", "}", "~"];
 number = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 alpha = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
@@ -15,12 +17,10 @@ var toUpper = function (AA) {
 };
 alpha2 = alpha.map(toUpper);
 
-var generate = document.querySelector("#generate");
-generate.addEventListener("click", function () {
-    pasw = generatePassword();
-    document.getElementById("password").placeholder = pasw;
-});
+// Get references to the #generate element
+var generateBtn = document.querySelector("#generate");
 
+// Write password to the #password input
 function generatePassword() {
     enternu = parseInt(prompt("How many characters would your password contain? Choose between 8 and 128"));
     if (!enternu) {
@@ -34,61 +34,67 @@ function generatePassword() {
         confirmLower = confirm("Will the password contain Lowercase letters?");
     };
     if (!confirmChara && !confirmNum && !confirmUpper && !confirmLower) {
-      choose = alert("Please choose at least one criteria");
+      chosen = alert("Please choose at least one criteria");
     }
     else if (confirmChara && confirmNum && confirmUpper && confirmLower) {
-      choose = character.concat(number, alpha, alpha2);
+      chosen = character.concat(number, alpha, alpha2);
     }
     else if (confirmChara && confirmNum && confirmUpper) {
-      choose = character.concat(number, alpha2);
+      chosen = character.concat(number, alpha2);
     }
     else if (confirmChara && confirmNum && confirmLower) {
-      choose = character.concat(number, alpha);
+      chosen = character.concat(number, alpha);
     }
     else if (confirmChara && confirmLower && confirmUpper) {
-      choose = character.concat(alpha, alpha2);
+      chosen = character.concat(alpha, alpha2);
     }
     else if (confirmNum && confirmLower && confirmUpper) {
-      choose = number.concat(alpha, alpha2);
+      chosen = number.concat(alpha, alpha2);
     }
     else if (confirmChara && confirmNum) {
-      choose = character.concat(number);
+      chosen = character.concat(number);
     } else if (confirmChara && confirmLower) {
-      choose = character.concat(alpha);
+      chosen = character.concat(alpha);
     } else if (confirmChara && confirmUpper) {
-      choose = character.concat(alpha2);
+      chosen = character.concat(alpha2);
     }
     else if (confirmLower && confirmNum) {
-      choose = alpha.concat(number);
+      chosen = alpha.concat(number);
     } else if (confirmLower && confirmUpper) {
-      choose = alpha.concat(alpha2);
+      chosen = alpha.concat(alpha2);
     } else if (confirmNum && confirmUpper) {
-      choose = number.concat(alpha2);
+      chosen = number.concat(alpha2);
     }
     else if (confirmChara) {
-      choose = character;
+      chosen = character;
     }
     else if (confirmNum) {
-      choose = number;
+      chosen = number;
     }
     else if (confirmLower) {
-      choose = alpha;
+      chosen = alpha;
     }
     else if (confirmUpper) {
-      choose = space.concat(alpha2);
+      chosen = space.concat(alpha2);
     };
 
     var password = [];
     for (var i = 0; i < enternu; i++) {
-        var pickchoice = choose[Math.floor(Math.random() * choose.length)];
+        var pickchoice = chosen[Math.floor(Math.random() * chosen.length)];
         password.push(pickchoice);
     }
 
-    var pasw = password.join("");
-    UserInput(pasw);
-    return pasw;
+    var passwo = password.join("");
+    UserInput(passwo);
+    return passwo;
 }
 
-function UserInput(pasw) {
-    document.getElementById("password").textContent = pasw;
+function UserInput(passwo) {
+    document.getElementById("password").textContent = passwo;
 }
+
+// Add event listener to generate button
+generateBtn.addEventListener("click", function () {
+    passwo = generatePassword();
+  }
+);
